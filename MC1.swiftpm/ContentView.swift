@@ -27,7 +27,7 @@ struct DetailView: View {
 struct Home: View {
     public let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         @State private var selection = 0
-    let images = ["test5","test6","test7","test8","test5"]
+    let images = ["bear1","bear2","bear3","bear4","bear5"]
     
     var body: some View{
         
@@ -43,7 +43,7 @@ struct Home: View {
             .padding(.vertical, -60)
             
             HStack(spacing: 50){
-                Image("test5")
+                Image("test9")
                     .frame(width: 300, alignment: .leading)
                 
                 TabView(selection : $selection){
@@ -69,10 +69,10 @@ struct Home: View {
             .padding(.vertical, -180)
             
             HStack(spacing: 50){
-                Image("test7")
+                Image("test9")
                     .frame(width: 300, alignment: .leading)
                 
-                Image("test6")
+                Image("test9")
                     .frame(width: 300, alignment: .center)
                 
                 NavigationLink(destination: Home2()) {
@@ -101,24 +101,24 @@ struct Home2: View {
                 .padding(.vertical, -60)
                 
                 HStack(spacing: 50){
-                    Image("test5")
+                    Image("test9")
                         .frame(width: 300, alignment: .leading)
                     
-                    Image("test6")
+                    Image("test9")
                         .frame(width: 300, alignment: .center)
                 }
                 .padding(.vertical, -180)
                 
                 
                 HStack(spacing: 50){
-                    Image("test7")
+                    Image("test9")
                         .frame(width: 300, alignment: .leading)
                     
                     NavigationLink(destination: BlackScene()) {
                         Text("Go BlackScene")
                     }
                     
-                    Image("test5")
+                    Image("test9")
                         .frame(width: 300, alignment: .center)
                     
                     Button("Show Popup"){
