@@ -178,10 +178,10 @@ struct BlackScene: View{
         ZStack {
             Color.black.ignoresSafeArea()
             VStack{
-                Text("데키&CJ와 함께라면, ")
+                Text("두번째, ")
                     .font(.system(size: 35))
                     .foregroundColor(.white)
-                Text("Chapter 1.  야, 너두 코딩할 수 있어")
+                Text("Chapter 3.  검은색 페이지")
                     .font(.system(size: 55))
                     .foregroundColor(.white)
             }
