@@ -198,3 +198,7 @@ struct BlackScene: View{
 //        Text("test12")
 //            .padding(.horizontal)
 //            .padding(.top)
+
+
+// 이하 코드는 MAX가 작성
+// print("Hello git!")
