@@ -27,59 +27,78 @@ struct DetailView: View {
 struct Home: View {
     public let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         @State private var selection = 0
-    let images = ["test5","test6","test7","test8","test5"]
+    let images = ["sample","sample","sample","sample","sample"]
     
     var body: some View{
         
         
-        VStack(spacing: 200){
+        VStack(spacing: 100){
             
-            
-            HStack {
-                Text("chapter 1. Coding")
-                Spacer().frame(width: 800)
-                Text("STAGE").padding(.horizontal, -600)
-            }
-            .padding(.vertical, -60)
-            
-            HStack(spacing: 50){
-                Image("test5")
-                    .frame(width: 300, alignment: .leading)
+            ZStack{
+                Image("titletext")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(.vertical, -180)
+                    .frame(width: 1100)
+//                    .scaledToFill()
+//                    .edgesIgnoringSafeArea(.all)
                 
-                TabView(selection : $selection){
-                    
-                    ForEach(0..<5){ i in
-                        Image("\(images[i])")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    }
-                    
-                    
-                }.tabViewStyle(PageTabViewStyle())
-                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                    .onReceive(timer, perform: { _ in
-                        
-                        withAnimation{
-                            print("selection is",selection)
-                            selection = selection < 5 ? selection + 1 : 0
-                        }
-                    })
-                    .frame(width: 200, height: 200, alignment: .center)
-            }
-            .padding(.vertical, -180)
-            
-            HStack(spacing: 50){
-                Image("test7")
-                    .frame(width: 300, alignment: .leading)
-                
-                Image("test6")
-                    .frame(width: 300, alignment: .center)
-                
-                NavigationLink(destination: Home2()) {
-                    Text("Go Home2")
+                HStack {
+                    Text("chapter 1. Coding")
+                    Spacer().frame(width: 800)
+                    Text("STAGE").padding(.horizontal, -600)
                 }
+                .padding(.vertical, -145)
             }
-            .padding(.vertical, -10)
+            
+            
+            HStack{
+                Image("left")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 700)
+                    .offset(x: -10,y: 0)
+                
+                VStack{
+                    
+                    TabView(selection : $selection){
+                        
+                        ForEach(0..<5){ i in
+                            Image("\(images[i])")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
+                        
+                        
+                    }.tabViewStyle(PageTabViewStyle())
+                        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
+                        .onReceive(timer, perform: { _ in
+                            
+                            withAnimation{
+                                print("selection is",selection)
+                                selection = selection < 5 ? selection + 1 : 0
+                            }
+                        })
+                        .frame(width: 750, height: 600, alignment: .trailing)
+                        .offset(y: 30)
+                    
+                    
+                    Image("script")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 750, height: 200)
+                        .offset(y: -40)
+                    
+                    NavigationLink(destination: Home2()) {
+                        Text("Go Home2")
+                    }
+                }
+                
+                
+            }
+            .padding(.vertical, -250)
+            
+            
         }
     }
 }
