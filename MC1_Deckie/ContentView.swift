@@ -70,7 +70,7 @@ struct ContentView: View {
                         
                         Spacer().frame(height: 50.0)
                         
-                        NavigationLink(destination: StatsScreenView()){
+                        NavigationLink(destination: ThirdScreenView()){
                             Image("logo")
                                 .resizable()
                                 .frame(width: 50, height: 50)

@@ -1,6 +1,22 @@
 import SwiftUI
 import Foundation
 
+struct AnimatableSystemFontModifier: ViewModifier, Animatable {
+    var size: Double
+    var weight: Font.Weight
+    var design: Font.Design
+
+    var animatableData: Double {
+        get { size }
+        set { size = newValue }
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: size, weight: weight, design: design))
+    }
+}
+
 struct FourthScreenView: View {
     
     @State private var fontSize = 32.0
@@ -12,8 +28,17 @@ struct FourthScreenView: View {
             
             NavigationStack {
                 VStack {
-                    
-                    
+                    HStack{
+                        
+                        Image("group1")
+                            .resizable()
+                            .frame(width: 280, height: 210)
+                        
+                        Image("group2")
+                            .resizable()
+                            .frame(width: 280, height: 150)
+                        
+                    }
                     
                     VStack{
                         
@@ -45,7 +70,7 @@ struct FourthScreenView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: FourthScreenView()){
+                    NavigationLink(destination: StatsScreenView()){
                         Text("넘어가기 버튼")
                             .foregroundColor(Color.black)
                             .frame(width: 100, height: 60, alignment: .center)
@@ -57,6 +82,13 @@ struct FourthScreenView: View {
         } else {
             // Fallback on earlier versions
         }
+    }
+}
+
+
+extension View {
+    func animatableSystemFont(size: Double, weight: Font.Weight = .regular, design: Font.Design = .default) -> some View {
+        self.modifier(AnimatableSystemFontModifier(size: size, weight: weight, design: design))
     }
 }
 

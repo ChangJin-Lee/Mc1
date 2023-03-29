@@ -53,7 +53,7 @@ struct StatsScreenView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: ThirdScreenView()){
+                    NavigationLink(destination: EndingScreenView()){
                         Text("넘어가기 버튼")
                             .foregroundColor(Color.black)
                             .frame(width: 100, height: 60, alignment: .center)
